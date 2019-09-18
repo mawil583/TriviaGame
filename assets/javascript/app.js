@@ -153,7 +153,7 @@ $(document).ready(function () {
         let incorrectAns = $(`<br><p>Wrong! The correct answer was ${questions[questionNum].a}
             </p><br><br>`);
         $("#question").append(incorrectAns);
-        $("#question").append()
+        $("#question").append(wrongGif);
         setTimeout(nextQuestion, 4 * 1000);
     }
 

@@ -137,6 +137,7 @@ $(document).ready(function () {
 
     function incorrect() {
         clearInterval(countdown);
+        $("#question").empty();
         let incorrectAns = $(`<br><p>Wrong! The correct answer was ${questions[questionNum].a}.
             </p><br><br>`);
         $("#question").append(incorrectAns);

@@ -5,9 +5,10 @@ $(document).ready(function () {
             q: "The __ richest people in the US have more weath than the rest of the country combined.",
             a: "3",
             choices: ["3", "5", "10", "15"],
-            gif: `<div style="width:100%;height:0;padding-bottom:90%;position:relative;"><iframe 
-                src="https://giphy.com/embed/N8BgIThVVDrDG" width="40%" height="40%" style="position:absolute;left:30%;" 
-                frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`
+            gif: `<img src="./assets/images/BillGates.gif" style="max-width:40%;height:auto;"></div>`
+            // gif: `<div style="width:100%;height:0;padding-bottom:90%;position:relative;"><iframe 
+            //     src="https://giphy.com/embed/N8BgIThVVDrDG" width="40%" height="40%" style="position:absolute;left:30%;" 
+            //     frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`
         },
         {
             q: "The US ties for ___ among 9 other nations for drinking water quality.",
@@ -66,7 +67,7 @@ $(document).ready(function () {
             q: "According to the CPI, the US ranks ___ among the LEAST corrupt countries (1st being least corrupt).",
             a: "22nd",
             choices: ["9th", "17th", "22nd", "26th"],
-            gif: `<div style="width:100%;height:0;padding-bottom:59%;position:relative;"><iframe 
+            gif: `<div style="width:100%;height:0;padding-bottom:59%;position:relative;"<iframe 
                 src="https://giphy.com/embed/l2SpQNlDBMFtkp4Zi" width="50%" height="50%" 
                 style="position:absolute;left:25%" frameBorder="0" class="giphy-embed"allowFullScreen></iframe></div>`
         },

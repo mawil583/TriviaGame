@@ -48,7 +48,7 @@ $(document).ready(function () {
                 href="https://giphy.com/gifs/tacocatband-tacocat-l46CfkDr9obp42Uq4">via GIPHY</a></p>`
         },
         {
-            q: "Since the year 2000, which country has cut greenhouse emissions by the greatest percentage?",
+            q: "Since the year 2000, which country has cut greenhouse emissions by   the greatest percentage?",
             a: "Denmark",
             choices: ["USA", "Denmark", "France", "United Kingdom"],
             gif: `<iframe src="https://giphy.com/embed/5UxMJrdciUPfAsuUZb" width="480" height="480" 
@@ -83,7 +83,7 @@ $(document).ready(function () {
         href="https://giphy.com/gifs/election2016-donald-trump-election-2016-3oz8xLd9DJq2l2VFtu">via 
         GIPHY</a></p>`;
     let timeIsUp = `<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe 
-        src="https://giphy.com/embed/fUwOs80ja3sTPpjndh" width="70%" height="70%" 
+        src="https://giphy.com/embed/fUwOs80ja3sTPpjndh" width="60%" height="60%" 
         style="position:absolute" frameBorder="0" class="giphy-embed" 
         allowFullScreen></iframe></div><p><a 
         href="https://giphy.com/gifs/netflix-gabriel-iglesias-gabe-mr-fUwOs80ja3sTPpjndh">via 
@@ -104,7 +104,7 @@ $(document).ready(function () {
         $("#timer").empty();
         time = 7;
         clearInterval(countdown);
-        $("#timer").text("Time Remaining: " + time);
+        $("#timer").append(`<h2 class='time'>Time Remaining:  ${time}</h2>`);
         countdown = setInterval(decrement, 1000);
         appendChoices();
         // console.log(questionNum);
@@ -127,7 +127,7 @@ $(document).ready(function () {
             } else {
                 console.log(`a setTimeout function from else statement 
                     is running because the condition (questionNum > questions.length) was not met`);
-                setTimeout(nextQuestion, 4 * 1000);
+                setTimeout(nextQuestion, 5 * 1000);
             }
         }
     }
@@ -140,33 +140,28 @@ $(document).ready(function () {
             gameOver();
         } else {
             // setTimeout(nextQuestion, 4 * 1000);
-            $("#question").append("<br><br>" + questions[questionNum].q + "<br><br>");
+            $("#question").append(`<br><br><p>${questions[questionNum].q}</p><br><br>`);
         }
         // 
 
         // $("#question").append("<br><br>" + questions[questionNum].q + "<br><br>");
         for (let i = 0; i < questions[i].choices.length; i++) {
-            // 
+            // This 8 is hardcoded
             if (questionNum == 8) {
                 gameOver();
             } else {
-                // setTimeout(nextQuestion, 4 * 1000);
-                // $("#question").append("<br><br>" + questions[questionNum].q + "<br><br>");
-                let choice = $(`<p class="question"><a class="start" class="btn btn-primary btn-lg btn-block" href="#" role="button">${questions[questionNum].choices[i]}</a></p>`);
+                // let choice = $(`<p class="question"><a class="start" class="btn btn-primary btn-lg btn-block" href="#" role="button">${questions[questionNum].choices[i]}</a></p>`);
+                let choice = $(`<button type="button" class="choices btn btn-primary m-1 w-50">${questions[questionNum].choices[i]}</button><br>`)
                 choice.attr("data-ans", questions[questionNum].choices[i]);
                 $("#question").append(choice);
             }
-            // 
-            // let choice = $(`<p class="question"><a class="start" class="btn btn-primary btn-lg btn-block" href="#" role="button">${questions[questionNum].choices[i]}</a></p>`);
-            // choice.attr("data-ans", questions[questionNum].choices[i]);
-            // $("#question").append(choice);
-        }
 
-        // console.log(questionNum)
+        }
     }
+    // $(document).on("click", ".btn", nextQuestion);
 
     // This handles click events when player answers a question
-    $(document).on("click", ".question", function () {
+    $(document).on("click", ".choices", function () {
         console.log('clicked on choice')
         let userGuess = $(this).attr("data-ans");
         console.log(userGuess);
@@ -220,24 +215,25 @@ $(document).ready(function () {
 
         clearInterval(countdown)
         $("#question").empty();
+        $("#timer").empty();
         let endGameDisplay = $(`<br>
-            <p>Game over!</p><br>
-            <p>You answered ${numCorrectGuesses} questions corectly.</p><br>
-            <p>You answered ${numIncorrectGuesses} questions incorrectly.</p>`);
+            <p><em>Game over!<em></p><br>
+            <p>You answered <kbd class='right'>${numCorrectGuesses}</kbd> questions corectly.</p><br>
+            <p>You answered <kbd class='wrongTotal'>${numIncorrectGuesses}</kbd> questions incorrectly.</p>`);
         $("#question").append(endGameDisplay);
         // timeout score function added here
         addTimeoutScore();
-        $("#question").append("<button class='reset'>Try again?</button>")
+        $("#question").append("<br><button class='choices btn btn-primary m-1 w-50'>Try again?</button>")
     }
 
     function addTimeoutScore () {
         if (numTimeOut > 0) {
             let timeOutDisplay = $(`<br>
-                <p>You let ${numTimeOut} questions time out. If the time ran out, 
+                <p>You let <kbd class='wrongTotal'>${numTimeOut}</kbd> questions time out. If the time ran out, 
                 that counts as an incorrect guess. </p><br>
                 <p>Your score is 
-                ${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
-                    + numCorrectGuesses))}%.</p>`);
+                <em>${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
+                    + numCorrectGuesses))}%.</em></p>`);
             $("#question").append(timeOutDisplay);
         } else {
             let scoreDisplayWithNoTimeouts = $(`<br>
@@ -256,8 +252,8 @@ $(document).ready(function () {
         countdown;
         $("#timer").empty();
         $("#question").empty();
-        $("#timer").append(`<p class="lead">This is a fact-checking game. 
-            Do you believe fake-news? Get ready to find out!</p>
+        $("#timer").append(`<p class="lead">This is a current-event trivia game. 
+            How well do you know current affairs? Get ready to find out!</p>
             <hr class="my-4"><p>Click the start button to begin the game.</p>
             <br><p class="lead"><a id="start" class="btn btn-primary btn-lg 
             btn-block" href="#" role="button">Start</a></p>`)

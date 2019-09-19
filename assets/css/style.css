@@ -3,5 +3,20 @@ body {
 }
 .wrong :hover {
     overflow: hidden;
+}
 
+#timer {
+    font-size: 1.5em;
+}
+/* button {
+    font-size: 7em;
+} */
+p {
+    font-size: 2.5em;
+}
+.wrongTotal {
+    color: red;
+}
+.right {
+    color: green;
 }

@@ -32,3 +32,26 @@ p {
 #score {
     color: blue;
 }
+
+@media only screen and (max-width: 415px) {
+    img[style] {
+        min-width: 90% !important;
+    }
+
+    .display-4 {
+        font-size: 2em;
+    }
+    
+    p {
+        font-size: 1.5em;
+    }
+
+    .col {
+        margin-top: 15px !important;
+    }
+
+    #timer, #lead {
+        font-size: 1.3em;
+    }
+    
+}

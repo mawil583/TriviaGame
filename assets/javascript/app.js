@@ -5,7 +5,7 @@ $(document).ready(function () {
             q: "The __ richest people in the US have more weath than the rest of the country combined.",
             a: "3",
             choices: ["3", "5", "10", "15"],
-            gif: `<img src="./assets/images/BillGates.gif" style="max-width:40%;height:auto;">`
+            gif: `<img src="./assets/images/BillGates.gif" style="max-width:40%;min-width:50%;height:auto;">`
         },
         {
             q: "The US ties for ___ among 9 other nations for drinking water quality.",

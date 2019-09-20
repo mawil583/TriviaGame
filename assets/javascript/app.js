@@ -17,7 +17,7 @@ $(document).ready(function () {
                 style="min-width:50%;max-width:70%;height:auto;">`
         },
         {
-            q: `According to the CPI, the North Korea ranks ___ among the MOST corrupt 
+            q: `According to the CPI, North Korea ranks ___ among the MOST corrupt 
                 countries (1st being most corrupt).`,
             a: "4th",
             choices: ["1st", "2nd", "3rd", "4th"],

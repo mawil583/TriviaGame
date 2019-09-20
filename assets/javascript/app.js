@@ -107,7 +107,7 @@ $(document).ready(function () {
             }
         }
     }
-    
+
     function appendChoices() {
         $("#question").empty();
         if (questionNum == questions.length) {
@@ -115,11 +115,7 @@ $(document).ready(function () {
         } else {
             $("#question").append(`<br><br><p>
                 ${questions[questionNum].q}</p><br><br>`);
-        }
-        for (let i = 0; i < questions[i].choices.length; i++) {
-            if (questionNum == questions.length) {
-                gameOver();
-            } else {
+            for (let i = 0; i < questions[i].choices.length; i++) {
                 let choice = $(`<button type="button" class="choices btn btn-primary 
                     m-1 w-50">${questions[questionNum].choices[i]}</button><br>`)
                 choice.attr("data-ans", questions[questionNum].choices[i]);
@@ -127,7 +123,7 @@ $(document).ready(function () {
             }
         }
     }
-   
+
     // This handles click events when player answers a question
     $(document).on("click", ".choices", function () {
         let userGuess = $(this).attr("data-ans");
@@ -186,25 +182,25 @@ $(document).ready(function () {
             w-50'>Try again?</button>`)
     }
 
-    function addTimeoutScore () {
+    function addTimeoutScore() {
         if (numTimeOut > 0) {
             let timeOutDisplay = $(`<br>
                 <p>You let <em class='wrongTotal'>${numTimeOut}</em> questions 
                 time out. If the time ran out, that counts as an incorrect 
                 guess. </p><br><p>Your score is <em id="score">
                 ${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
-                + numCorrectGuesses))}%.</em></p>`);
+                    + numCorrectGuesses))}%.</em></p>`);
             $("#question").append(timeOutDisplay);
         } else {
             let scoreDisplayWithNoTimeouts = $(`<br>
                 <p>Your score is <em id="score">
                 ${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
-                + numCorrectGuesses))}%.</em></p>`);
+                    + numCorrectGuesses))}%.</em></p>`);
             $("#question").append(scoreDisplayWithNoTimeouts);
         }
     }
-//  reset
-    $(document).on('click', '.reset', function() {
+    //  reset
+    $(document).on('click', '.reset', function () {
         time = 20;
         numCorrectGuesses = 0;
         numIncorrectGuesses = 0;

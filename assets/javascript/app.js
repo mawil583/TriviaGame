@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     let questions = [
         {
-            q: `The __ richest people in the US have more weath than the rest 
-                of the country combined.`,
+            q: `The __ richest people in the US have more weath than the bottom 
+            half of the popultation.`,
             a: "3",
             choices: ["3", "5", "10", "15"],
             gif: `<img src="./assets/images/BillGates.gif" 

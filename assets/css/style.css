@@ -53,5 +53,8 @@ p {
     #timer, #lead {
         font-size: 1.3em;
     }
+    .btn {
+        width: 100% !important;
+    }
     
 }

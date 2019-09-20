@@ -92,6 +92,7 @@ $(document).ready(function () {
         time--;
         $("#timer").text("Time Remaining: " + time);
         if (time === 0) {
+            $("#question").empty();
             clearInterval(countdown);
             let correctAns = $(`<br><p>Your time is up! The correct answer 
                 was ${questions[questionNum].a}.</p><br><br>`);

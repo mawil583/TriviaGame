@@ -2,58 +2,73 @@ $(document).ready(function () {
 
     let questions = [
         {
-            q: "The __ richest people in the US have more weath than the rest of the country combined.",
+            q: `The __ richest people in the US have more weath than the rest 
+                of the country combined.`,
             a: "3",
             choices: ["3", "5", "10", "15"],
-            gif: `<img src="./assets/images/BillGates.gif" style="max-width:40%;min-width:50%;height:auto;">`
+            gif: `<img src="./assets/images/BillGates.gif" 
+                style="max-width:40%;min-width:50%;height:auto;">`
         },
         {
             q: "The US ties for ___ among 9 other nations for drinking water quality.",
             a: "1st",
             choices: ["1st", "2nd", "3rd", "4th"],
-            gif: `<img src="./assets/images/Colbert.gif" style="min-width:50%;max-width:70%;height:auto;">`
+            gif: `<img src="./assets/images/Colbert.gif" 
+                style="min-width:50%;max-width:70%;height:auto;">`
         },
         {
-            q: "According to the CPI, the North Korea ranks ___ among the MOST corrupt countries (1st being most corrupt).",
+            q: `According to the CPI, the North Korea ranks ___ among the MOST corrupt 
+                countries (1st being most corrupt).`,
             a: "4th",
             choices: ["1st", "2nd", "3rd", "4th"],
-            gif: `<img src="./assets/images/NorthKorea.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/NorthKorea.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
         {
-            q: "Which country has historically contributed most to the world's overall carbon pollution (from 1751 to 2017)?",
+            q: `Which country has historically contributed most to the world's overall 
+                carbon pollution (from 1751 to 2017)?`,
             a: "USA",
             choices: ["China", "India", "USA", "Saudi Arabia"],
-            gif: `<img src="./assets/images/LacklusterFlagWaving.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/LacklusterFlagWaving.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
         {
-            q: "Since the year 2000, which country has cut greenhouse emissions by the greatest percentage (not absolute amount)?",
+            q: `Since the year 2000, which country has cut greenhouse emissions by 
+                the greatest percentage (not absolute amount)?`,
             a: "Denmark",
             choices: ["USA", "Denmark", "France", "United Kingdom"],
-            gif: `<img src="./assets/images/Denmark.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/Denmark.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
         {
             q: "What percentage of Earth's oxygen does the Amazon Rainforest produce?",
             a: "6-9%",
             choices: ["3-5%", "6-9%", "10-13%", "14-17%"],
-            gif: `<img src="./assets/images/Rainforest.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/Rainforest.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
         {
             q: "Which of the following countries has the highest taxes?",
             a: "USA",
             choices: ["Mexico", "Ireland", "Korea", "USA"],
-            gif: `<img src="./assets/images/Taxes.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/Taxes.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
         {
-            q: "According to the CPI, the US ranks ___ among the LEAST corrupt countries (1st being least corrupt).",
+            q: `According to the CPI, the US ranks ___ among the LEAST corrupt 
+                countries (1st being least corrupt).`,
             a: "22nd",
             choices: ["9th", "17th", "22nd", "26th"],
-            gif: `<img src="./assets/images/ItsFine.gif" style="max-width:40%;height:auto;"></img>`
+            gif: `<img src="./assets/images/ItsFine.gif" 
+                style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
     ]
 
     // global declarations
-    let wrongGif = `<img src="./assets/images/Wrong.gif" style="max-width:40%;height:auto;"></img>`;
-    let timeIsUp = `<img src="./assets/images/TimeIsUp.gif" style="max-width:40%;height:auto;"></img>`;
+    let wrongGif = `<img src="./assets/images/Wrong.gif"
+         style="max-width:40%;min-width:50%;height:auto;"></img>`;
+    let timeIsUp = `<img src="./assets/images/TimeIsUp.gif" 
+        style="max-width:40%;min-width:50%;height:auto;"></img>`;
     let time = 20;
     let numCorrectGuesses = 0;
     let numIncorrectGuesses = 0;
@@ -78,7 +93,8 @@ $(document).ready(function () {
         $("#timer").text("Time Remaining: " + time);
         if (time === 0) {
             clearInterval(countdown);
-            let correctAns = $(`<br><p>Your time is up! The correct answer was ${questions[questionNum].a}.</p><br><br>`);
+            let correctAns = $(`<br><p>Your time is up! The correct answer 
+                was ${questions[questionNum].a}.</p><br><br>`);
             $("#question").append(correctAns);
             $("#question").append(timeIsUp);
             numTimeOut++;
@@ -96,13 +112,15 @@ $(document).ready(function () {
         if (questionNum == questions.length) {
             gameOver();
         } else {
-            $("#question").append(`<br><br><p>${questions[questionNum].q}</p><br><br>`);
+            $("#question").append(`<br><br><p>
+                ${questions[questionNum].q}</p><br><br>`);
         }
         for (let i = 0; i < questions[i].choices.length; i++) {
             if (questionNum == questions.length) {
                 gameOver();
             } else {
-                let choice = $(`<button type="button" class="choices btn btn-primary m-1 w-50">${questions[questionNum].choices[i]}</button><br>`)
+                let choice = $(`<button type="button" class="choices btn btn-primary 
+                    m-1 w-50">${questions[questionNum].choices[i]}</button><br>`)
                 choice.attr("data-ans", questions[questionNum].choices[i]);
                 $("#question").append(choice);
             }
@@ -124,7 +142,8 @@ $(document).ready(function () {
     function correct() {
         clearInterval(countdown)
         $("#question").empty();
-        let correctAns = $(`<br><p>Correct! The answer was ${questions[questionNum].a}.</p><br><br>`);
+        let correctAns = $(`<br><p>Correct! The answer was 
+            ${questions[questionNum].a}.</p><br><br>`);
         $("#question").append(correctAns);
         $("#question").append(questions[questionNum].gif)
         numCorrectGuesses++;
@@ -138,8 +157,8 @@ $(document).ready(function () {
     function incorrect() {
         clearInterval(countdown);
         $("#question").empty();
-        let incorrectAns = $(`<br><p>Wrong! The correct answer was ${questions[questionNum].a}.
-            </p><br><br>`);
+        let incorrectAns = $(`<br><p>Wrong! The correct answer 
+            was ${questions[questionNum].a}.</p><br><br>`);
         $("#question").append(incorrectAns);
         $("#question").append(wrongGif);
         numIncorrectGuesses++;
@@ -156,26 +175,30 @@ $(document).ready(function () {
         $("#timer").empty();
         let endGameDisplay = $(`<br>
             <p><em>Game over!<em></p><br>
-            <p>You answered <em class='right'>${numCorrectGuesses}</em> questions corectly.</p><br>
-            <p>You answered <em class='wrongTotal'>${numIncorrectGuesses}</em> questions incorrectly.</p>`);
+            <p>You answered <em class='right'>${numCorrectGuesses}</em> 
+                questions corectly.</p><br><p>You answered <em class='wrongTotal'>
+                ${numIncorrectGuesses}</em> questions incorrectly.</p>`);
         $("#question").append(endGameDisplay);
         // timeout score function added here
         addTimeoutScore();
-        $("#question").append("<br><button class='reset btn btn-primary m-1 w-50'>Try again?</button>")
+        $("#question").append(`<br><button class='reset btn btn-primary m-1 
+            w-50'>Try again?</button>`)
     }
 
     function addTimeoutScore () {
         if (numTimeOut > 0) {
             let timeOutDisplay = $(`<br>
-                <p>You let <em class='wrongTotal'>${numTimeOut}</em> questions time out. If the time ran out, 
-                that counts as an incorrect guess. </p><br>
-                <p>Your score is <em id="score">${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
-                    + numCorrectGuesses))}%.</em></p>`);
+                <p>You let <em class='wrongTotal'>${numTimeOut}</em> questions 
+                time out. If the time ran out, that counts as an incorrect 
+                guess. </p><br><p>Your score is <em id="score">
+                ${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
+                + numCorrectGuesses))}%.</em></p>`);
             $("#question").append(timeOutDisplay);
         } else {
             let scoreDisplayWithNoTimeouts = $(`<br>
-                <p>Your score is <em id="score">${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
-                    + numCorrectGuesses))}%.</em></p>`);
+                <p>Your score is <em id="score">
+                ${100 * (numCorrectGuesses / (numIncorrectGuesses + numTimeOut
+                + numCorrectGuesses))}%.</em></p>`);
             $("#question").append(scoreDisplayWithNoTimeouts);
         }
     }
@@ -196,3 +219,4 @@ $(document).ready(function () {
             btn-block" href="#" role="button">Start</a></p>`)
     })
 })
+

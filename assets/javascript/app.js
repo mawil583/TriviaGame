@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     let questions = [
         {
-            q: `The __ richest people in the US have more weath than the bottom 
+            q: `The __ richest people in the US have more wealth than the bottom 
             half of the population combined.`,
             a: "3",
             choices: ["3", "5", "10", "15"],
@@ -62,7 +62,7 @@ $(document).ready(function () {
             gif: `<img src="./assets/images/ItsFine.gif" 
                 style="max-width:40%;min-width:50%;height:auto;"></img>`
         },
-    ]
+    ];
 
     // global declarations
     let wrongGif = `<img src="./assets/images/Wrong.gif"
@@ -113,8 +113,8 @@ $(document).ready(function () {
         if (questionNum == questions.length) {
             gameOver();
         } else {
-            $("#question").append(`<br><br><p>
-                ${questions[questionNum].q}</p><br><br>`);
+            $("#question").append(`<br><br><p>${questions[questionNum].q}
+                </p><br><br>`);
             for (let i = 0; i < questions[i].choices.length; i++) {
                 let choice = $(`<button type="button" class="choices btn btn-primary 
                     m-1 w-50">${questions[questionNum].choices[i]}</button><br>`)
@@ -137,7 +137,7 @@ $(document).ready(function () {
     })
 
     function correct() {
-        clearInterval(countdown)
+        clearInterval(countdown);
         $("#question").empty();
         let correctAns = $(`<br><p>Correct! The answer was 
             ${questions[questionNum].a}.</p><br><br>`);
@@ -167,7 +167,7 @@ $(document).ready(function () {
     }
 
     function gameOver() {
-        clearInterval(countdown)
+        clearInterval(countdown);
         $("#question").empty();
         $("#timer").empty();
         let endGameDisplay = $(`<br>
@@ -179,7 +179,7 @@ $(document).ready(function () {
         // timeout score function added here
         addTimeoutScore();
         $("#question").append(`<br><button class='reset btn btn-primary m-1 
-            w-50'>Try again?</button>`)
+            w-50'>Try again?</button>`);
     }
 
     function addTimeoutScore() {
@@ -213,7 +213,6 @@ $(document).ready(function () {
             How well do you know current affairs? Get ready to find out!</p>
             <hr class="my-4"><p>Click the start button to begin the game.</p>
             <br><p class="lead"><a id="start" class="btn btn-primary btn-lg 
-            btn-block" href="#" role="button">Start</a></p>`)
+            btn-block" href="#" role="button">Start</a></p>`);
     })
 })
-
